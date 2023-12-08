@@ -1,0 +1,11 @@
+package aina;
+
+public class ClasseA {
+	public double x=1;
+	public void fonctionx() {
+		System.out.println(x);
+	}
+	public void affiche() {
+		 System.out.println("je suis un objet de ClasseA");
+	}
+}

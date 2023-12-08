@@ -1,0 +1,16 @@
+designer/forms/paletteexpanded1831837168=components,containers
+designer/newcontainer.layoutmanager=net.miginfocom.swing.MigLayout
+designer/newform.superclass=javax.swing.JPanel
+designer/properties.expanded.bindings=true
+designer/properties.expanded.category.expert=true
+designer/properties.expanded.category.readonly=true
+designer/properties.expanded.codegen=true
+designer/properties.expanded.events=true
+eclipse.preferences.version=1
+license.filechooser.lastdirpath=C\:\\Users\\Clog\u00E8ne\\Downloads
+license.filechooser.size=601, 397
+lookandfeel=com.sun.java.swing.plaf.windows.WindowsLookAndFeel
+updates.infoshown=true
+updates.lastchecked=1557855921657
+updates.lastcheckedversion=6.0.6.3.196
+updates.version.7.0.0.0.188=type\=free;message\=<html>A (free) new version of JFormDesigner  is available\: <b>7 Release Candidate 3</b> (Build&nbsp\\;188). <a href\="https\://www.formdev.com/jformdesigner/preview/?piwik_campaign\=check-for-updates">What's&nbsp\\;New</a>&nbsp\\;&nbsp\\;<a href\="https\://www.formdev.com/jformdesigner/preview/?piwik_campaign\=check-for-updates\#download">Download</a></html>

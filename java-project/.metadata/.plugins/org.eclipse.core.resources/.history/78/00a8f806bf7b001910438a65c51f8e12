@@ -1,0 +1,16 @@
+
+public class Loup extends Canin {
+	
+	public Loup() {
+		
+	}
+	public Loup() {
+		
+	}
+	@Override
+	public void crier() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,5 @@
+package aina;
+
+public class ClasseC extends ClasseB{
+	public char x;
+}

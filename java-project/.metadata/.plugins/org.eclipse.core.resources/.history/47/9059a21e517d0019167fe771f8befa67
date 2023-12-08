@@ -1,0 +1,55 @@
+package aina;
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int table[] =  {30,25,68,40,96,60,98,5,26,75,36,24,13,99,12};
+		int tab[] = supindice(table,littletab(table));
+		affichetab(tab);
+		
+			//System.out.println(littletab(table));
+		
+	}
+	public static int littletab(int[] tab) {
+		int little = tab[0];
+		int indice = 0;
+		for(int j=0;j<tab.length;j++) {
+			for(int i=0;i<tab.length;i++) {
+				if(little>tab[i]) {
+					little = tab[i];
+					indice=i;
+				}
+			}
+		}
+		return indice;
+		
+	}
+	public static int[] supindice(int[] tab,int indice) {
+		int[] tab2 = new int[tab.length-1];
+		int i=0;
+		int j=0;
+		//System.out.println(tab2.length);
+		//System.out.println(indice);
+		while(j<tab2.length) {
+			if(i!=indice) {
+			tab2[j]=tab[i];
+			i++;
+			j++;
+			} else if(i==indice) {
+				i++;
+				
+			}
+		}
+		return tab2;
+		
+	}
+	public static void affichetab(int[] tab) {
+		for(int i=0;i<tab.length;i++) {
+			System.out.println(tab[i]);
+		}
+		
+	}
+	
+
+}

@@ -1,0 +1,8 @@
+{
+  "name": "job-mobil",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

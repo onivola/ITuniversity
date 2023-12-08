@@ -1,0 +1,7 @@
+package com.mathmaurer.jeu;
+
+import javax.swing.JPanel;
+
+public class Scene extends JPanel{
+	
+}

@@ -1,0 +1,2 @@
+INDEX VERSION 1.131+C:\Users\Clogène\eclipse-workspace\.metadata\.plugins\org.eclipse.jdt.core
+3610277288.index

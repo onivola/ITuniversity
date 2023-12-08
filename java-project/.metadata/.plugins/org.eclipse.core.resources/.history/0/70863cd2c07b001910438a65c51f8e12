@@ -1,0 +1,13 @@
+
+public class Canin extends Animal {
+	public void deplacement() {
+		System.out.println("Je me deplace en meute !");
+	}
+
+	@Override
+	public void crier() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

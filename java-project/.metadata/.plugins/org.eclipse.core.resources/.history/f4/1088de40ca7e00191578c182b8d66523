@@ -1,0 +1,8 @@
+package aina;
+
+public class ClasseC extends ClasseB{
+	public char x='3';
+	public void fonctionx() {
+		System.out.println(x);
+	}
+}

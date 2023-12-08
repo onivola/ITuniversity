@@ -1,0 +1,120 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-title>
+      CONNEXION
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>CONNEXION</ion-card-title>
+      </ion-card-header>
+        <form (ngSubmit)="logSubmit()" [formGroup]="logForm" #logUserForm="ngForm">
+        <ion-item>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input  formControlName="email1" [(ngModel)]="UserlogModel.email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked" >Mot de passe</ion-label>
+          <ion-input formControlName="mdp1" type="password" [(ngModel)]="UserlogModel.mdp"></ion-input>
+     
+        </ion-item>
+        <ion-button [disabled]="!logUserForm.form.valid" type="submit" expand="full"color="success">CONNEXION</ion-button>
+      </form>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>INSCRIPTION</ion-card-title>
+      </ion-card-header>
+      <form (ngSubmit)="singSubmit()" [formGroup]="singForm" #singUserForm="ngForm">
+      <!--{{UserSingModel | json}}
+        Bind variable to html
+      -->
+      
+        <ion-item>
+        <ion-label position="stacked">Prénom</ion-label>
+        <ion-input formControlName="prenom" [(ngModel)]="UserSingModel.prenom"></ion-input>
+      </ion-item>
+     
+     
+
+      <ion-item>
+        <ion-label position="stacked">Nom</ion-label>
+        <ion-input formControlName="nom" [(ngModel)]="UserSingModel.nom"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input formControlName="email" [(ngModel)]="UserSingModel.email"></ion-input>
+      </ion-item>
+        <div *ngIf="email.invalid && (email.dirty || email.touched) && email.errors.required">
+          <span class="error-message">Veuillez renseigner ce champ.</span>
+        </div>
+        <div *ngIf="email.invalid && (email.dirty || email.touched) && email.errors.email">
+            <span class="error-message">L'adresse email n'est pas valide.</span>
+          </div>
+     
+      <ion-item>
+        <ion-label position="stacked">Mot de passe</ion-label>
+        <ion-input type="password" formControlName="mdp" [(ngModel)]="UserSingModel.mdp"></ion-input>
+      </ion-item>
+      <div *ngIf="mdp.invalid && (mdp.dirty || mdp.touched) && mdp.errors.required">
+          <span class="error-message">Veuillez renseigner ce champ.</span>
+        </div>
+        <div *ngIf="mdp.invalid && (mdp.dirty || mdp.touched) && mdp.errors.minlength">
+            <span class="error-message">Saisissez au moins 6 caractère.</span>
+          </div>
+      <ion-item>
+        <ion-label position="stacked">Téléphone mobile</ion-label>
+        <ion-input formControlName="phone" [(ngModel)]="UserSingModel.phone"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Adresse</ion-label>
+        <ion-input formControlName="adresse" [(ngModel)]="UserSingModel.adresse"></ion-input>
+      </ion-item>
+
+      <ion-list (ionChange)="checkIam($event)">
+          <ion-radio-group value="biff">
+            <ion-list-header>
+              <ion-label>Vous êtes: </ion-label>
+            </ion-list-header>
+        
+            <ion-item>
+              <ion-label>Particulier</ion-label>
+              <ion-radio type="radio" slot="start"  name="iam" value="par"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label>Professionnel</ion-label>
+              <ion-radio type="radio"  slot="start" name="iam"  value="pro"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      <ion-list (ionChange)="checkProfil($event)">
+        <ion-radio-group value="biff">
+          <ion-list-header>
+            <ion-label>Votre profil </ion-label>
+          </ion-list-header>
+      
+          <ion-item>
+            <ion-label>Posteur : vous avez besoin d'aide </ion-label>
+            <ion-radio  slot="start" name="profil" value="posteur"></ion-radio>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label>Jobber : vous proposez vos services  </ion-label>
+            <ion-radio  slot="start" name="profil" value="jobber"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+      
+      {{singSuccessMSG}}
+      <ion-button type="submit" [disabled]="!singUserForm.form.valid" expand="full"color="success">S'INSCRIR</ion-button>
+
+      </form>
+
+
+    </ion-card>
+</ion-content>

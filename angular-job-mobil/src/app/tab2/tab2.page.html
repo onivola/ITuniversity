@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-title>
+      Trouver un job
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <!-- RECHERCHE-->
+  <ion-searchbar [(ngModel)] = "search" placeholder="Recherche"></ion-searchbar>
+  <ion-card *ngFor="let DBPosterlist of DBPoster  | jobFilter: search">
+      <ion-item>
+        <img class="img_cat" height="40px" src='./assets/img/{{ DBPosterlist.categorie1 }}.png'/>
+        <ion-label>{{ DBPosterlist.titre }}</ion-label>
+        <ion-button fill="outline" slot="end">VOIR</ion-button>
+      </ion-item>
+    
+      <ion-card-content>
+        <ion-text color="">
+          <p>
+             {{ DBPosterlist.description}}
+          </p>
+        </ion-text>
+        <ion-chip>
+            <ion-icon name="build-outline"></ion-icon>
+          <ion-label>{{ DBPosterlist.categorie1 }}</ion-label>
+        </ion-chip>
+        <ion-chip>
+            <ion-icon name="pricetag-outline"></ion-icon>
+          <ion-label>{{ DBPosterlist.budjet }} Ar</ion-label>
+        </ion-chip>
+        <ion-chip>
+            <ion-icon name="location-outline"></ion-icon>
+            <ion-label>{{ adresse }}</ion-label>
+        </ion-chip>
+        <ion-chip>
+            <ion-icon name="call-outline"></ion-icon>
+            <ion-label>{{ DBPosterlist.phone }}</ion-label>
+        </ion-chip>
+        <ion-chip>
+            <ion-icon name="calendar-outline"></ion-icon>
+          <ion-label>{{ DBPosterlist.datejob }}</ion-label>
+        </ion-chip>              
+      </ion-card-content>
+    </ion-card>
+    
+        
+      
+
+ 
+
+      
+</ion-content>

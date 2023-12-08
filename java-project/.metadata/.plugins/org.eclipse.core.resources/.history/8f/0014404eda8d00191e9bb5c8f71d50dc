@@ -1,0 +1,35 @@
+import javax.swing.table.AbstractTableModel;
+
+public class ZModel  extends AbstractTableModel{
+	private Object[][] data;
+	private String[] title;
+	
+	public ZModel(Object[][] data,String[] title) {
+		this.data = data;
+		this.title=title;
+	}
+
+	@Override
+	public int getColumnCount(int col) {
+		// TODO Auto-generated method stub
+		//return this.title.length;
+		return this.data[][col].getClass();
+	}
+
+	@Override
+	public int getRowCount() {
+		// TODO Auto-generated method stub
+		return this.data.length;
+	}
+
+	@Override
+	public Object getValueAt(int row, int col) {
+		// TODO Auto-generated method stub
+		return this.data[row][col];
+	}
+	public String getColumnName(int col) {//pour afficher le titre
+		return this.title[col];
+	}
+	
+	
+}

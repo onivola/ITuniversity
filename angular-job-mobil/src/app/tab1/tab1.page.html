@@ -1,0 +1,76 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-title>
+      Poster un besoin
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-card>
+      {{cemail}}
+    <form (ngSubmit)="Submit()" [formGroup]="posteForm" #posteUserForm="ngForm">
+    <ion-list>
+        <ion-item>
+            <ion-label>Précisez la sous-catégorie</ion-label>
+            <ion-select (ionChange)="checkCat($event)" formControlName="categorie1" [(ngModel)]="PosteModel.categorie1" okText="Okay" cancelText="Dismiss">
+              <ion-select-option value="mecanique">Mécanique / Réparation</ion-select-option>
+              <ion-select-option value="bricolage">Bricolage</ion-select-option>
+            </ion-select>
+          </ion-item>
+        <ion-item>
+          <ion-label>Précisez la sous-catégorie</ion-label>
+          <ion-select formControlName="categorie2" [(ngModel)]="PosteModel.categorie2" okText="Okay" cancelText="Dismiss">
+     
+                <ion-select-option *ngFor="let cat of categorie; let i = index;" value="{{categorieVal[i]}}"> {{ cat }}</ion-select-option>
+           
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <ion-item>
+        <ion-label position="floating">Titre</ion-label>
+        <ion-input formControlName="titre" [(ngModel)]="PosteModel.titre"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">Budjet</ion-label>
+          <ion-input formControlName="budjet" [(ngModel)]="PosteModel.budjet"></ion-input>
+        </ion-item>
+      <ion-item>
+        <ion-label position="floating">Description</ion-label>
+        <ion-textarea formControlName="description" [(ngModel)]="PosteModel.description"></ion-textarea>
+      </ion-item>
+      <ion-item>
+              <ion-label position="floating">Date</ion-label>
+              <ion-datetime formControlName="datejob" [(ngModel)]="PosteModel.datejob" value="1995-04-15" min="2020-10-27" max="2100"
+                [dayShortNames]="customDayShortNames"
+                dayShortNames="Dimanche, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi"
+                displayFormat="DD/MM/YYYY"
+                monthShortNames="Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre"></ion-datetime>
+            
+        </ion-item>
+      <ion-item>
+          <ion-label>Personnes nécessaires</ion-label>
+          <ion-select formControlName="personne" [(ngModel)]="PosteModel.personne" okText="Okay" cancelText="Dismiss">
+            <ion-select-option value="1">1 Jobbers</ion-select-option>
+            <ion-select-option value="2">2 Jobbers</ion-select-option>
+            <ion-select-option value="3">3 Jobbers</ion-select-option>
+            <ion-select-option value="4">4 Jobbers</ion-select-option>
+            <ion-select-option value="5">5 Jobbers</ion-select-option>
+            <ion-select-option value="6">6 Jobbers</ion-select-option>
+            <ion-select-option value="7">7 Jobbers</ion-select-option>
+            <ion-select-option value="8">8 Jobbers</ion-select-option>
+            <ion-select-option value="9">9 Jobbers</ion-select-option>
+            <ion-select-option value="10">10 Jobbers</ion-select-option>
+          </ion-select>
+        </ion-item>
+      
+        
+      <ion-button type="submit" [disabled]="!posteUserForm.form.valid" color="success" expand="full">POSTER</ion-button>
+    </form>
+      </ion-card>
+
+
+     
+        
+        
+</ion-content>

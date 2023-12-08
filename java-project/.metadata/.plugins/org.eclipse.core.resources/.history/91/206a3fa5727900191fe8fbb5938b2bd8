@@ -1,0 +1,171 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package master;
+
+import DAO.EmployerDAO;
+import static DAO.EmployerDAO.findAll;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import model.Employer;
+
+/**
+ *
+ * @author Clogène
+import javax.swing.JFrame;
+* ***/
+ public class Fenetre extends JFrame { 
+     private JPanel container = new JPanel();
+     private JLabel textbase = new JLabel("Base de donnee");
+     private JComboBox combobase = new JComboBox();
+      private JTextField jtfid_nom = new JTextField(""); 
+     private JTextField jtfid_prenom = new JTextField(""); 
+     private JTextField jtfid_adresse = new JTextField(""); 
+     public Fenetre() throws SQLException, ClassNotFoundException{    
+         this.setTitle("Master Slave");    
+         this.setSize(700, 500);   
+         this.setLocationRelativeTo(null);    
+         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+          
+         combobase.setPreferredSize(new Dimension(100, 20));
+         combobase.addItem("option 1");
+         combobase.addItem("option 2");
+         ////////////LABEL BASE DE DONNEE/////////
+         JPanel Pnorth = new JPanel(); //panel NORTH
+         Pnorth.setBackground(Color.white);
+         Pnorth.setSize(100, 100);
+         Pnorth.add(textbase); //ajouter text a top
+         Pnorth.add(combobase);//ajouter combo a top
+         /////////////PANEL CENTRE
+        JPanel Pcenter = new JPanel();
+        Pcenter.setLayout(new BorderLayout());
+       
+        
+        /////////////PANEL CENTRE WEST///////////
+         JPanel Pcentrewest = new JPanel();
+        Pcentrewest.setLayout(new BorderLayout());
+        JPanel pcentrewestnorth = new JPanel();
+        JLabel textdelup = new JLabel("DELET/UPDATE");
+        JComboBox deluptable = new JComboBox();
+         deluptable.setPreferredSize(new Dimension(100, 20));
+         deluptable.addItem("option 1");
+         deluptable.addItem("option 2");
+        pcentrewestnorth.add(textdelup);        
+        pcentrewestnorth.add(deluptable);
+        Pcentrewest.add(pcentrewestnorth,BorderLayout.NORTH);
+        
+        JPanel Pcentrecentre = new JPanel();
+        Pcentrecentre.add(new JButton("Bouton 2"));
+        Pcenter.add(Pcentrewest,BorderLayout.WEST);
+        Pcenter.add(Pcentrecentre,BorderLayout.CENTER);
+        /////////////PANEL CENTRE EAST//////////////
+         JPanel Pcentrecentrenorth = new JPanel();
+         JPanel Pcentrecentrecentre = new JPanel();
+          
+         //Pcentrecentrecentre.setLayout(new BorderLayout());
+       
+        
+         JPanel Pupidnom = new JPanel();
+         JLabel labelnom = new JLabel("NOM");
+        
+         jtfid_nom.setPreferredSize(new Dimension(100,20));
+          Pupidnom.add(labelnom);
+         Pupidnom.add(jtfid_nom);
+         
+           JPanel Pupidprenom = new JPanel();
+         JLabel labelprenom = new JLabel("PRENOM");
+         
+         jtfid_prenom.setPreferredSize(new Dimension(100,20));
+          Pupidprenom.add(labelprenom);
+         Pupidprenom.add(jtfid_prenom);
+         
+       
+         
+         
+           JPanel Pupidadress = new JPanel();
+        JLabel labeladress = new JLabel("ADRESSE");
+         
+         jtfid_adresse.setPreferredSize(new Dimension(100,20));
+           Pupidadress.add(labeladress);
+         Pupidadress.add(jtfid_adresse);
+         
+         JButton Binsert = new JButton("INSERT");
+         Binsert.addActionListener(new BoutonInsert());
+         
+            Pcentrecentrecentre.add(Pupidnom);
+             Pcentrecentrecentre.add(Pupidprenom);
+              Pcentrecentrecentre.add(Pupidadress);
+              Pcentrecentrecentre.add(Binsert);
+          JComboBox comboinsert = new JComboBox();
+         comboinsert.setPreferredSize(new Dimension(100, 20));
+         comboinsert.addItem("option 1");
+         comboinsert.addItem("option 2");
+         Pcentrecentrenorth.add(comboinsert);
+         JPanel pcentrecentre = new JPanel();
+         JPanel pcentrenorth = new JPanel();
+         Pcentrecentre.setLayout(new BorderLayout());
+         
+         
+         Pcentrecentre.add(Pcentrecentrenorth,BorderLayout.NORTH);
+          Pcentrecentre.add(Pcentrecentrecentre,BorderLayout.CENTER);
+        /////////////TABLEAU//////////////
+        ResultSet rs = findAll("slave1");
+        Object[][] data = {      
+            {"Cysboy", "28 ans", "28 ans", "1.80 m"},      
+            {"BZHHydde", "28 ans", "28 ans", "1.80 m"},      
+            {"IamBow", "24 ans", "28 ans", "1.90 m"},      
+            {"FunMan", "32 ans", "28 ans", "1.85 m"}    };    //Les titres des colonnes  
+       
+         //Les données du tableau 
+         /**int i=0;
+        while (rs.next()) {
+           int IdEmployer = Integer.parseInt(rs.getString("id_employer")); 
+           data[0][0] = {"Cysboy", "28 ans", "28 ans", "1.80 m"};
+           System.out.println(IdEmployer);
+           i++;
+       }**/
+        
+        String  title[] = {"Pseudo", "Age", "Age", "Taille"};    
+        JTable tableau = new JTable(data, title);    //Nous ajoutons notre tableau à notre contentPane dans un scroll 
+        Pcentrewest.add(new JScrollPane(tableau),BorderLayout.CENTER); 
+        container.setBackground(Color.gray); //couleur du conteiner
+        container.setLayout(new BorderLayout()); //On définit le layout à utiliser sur le content pane 
+        container.add(Pnorth, BorderLayout.NORTH);//ajouter top au contener
+        container.add(Pcenter, BorderLayout.CENTER);//ajouter top au contener
+         
+        this.setContentPane(container);
+        this.setVisible(true);  
+     } 
+       //Classe écoutant notre bouton  
+     public class BoutonInsert implements ActionListener{     
+         public void actionPerformed(ActionEvent arg0) {      
+             System.out.print("insert");
+             Employer em = new Employer(jtfid_nom.getText(),jtfid_prenom.getText(),jtfid_adresse.getText());
+             try {
+                 EmployerDAO.insert("slave1",em);
+             } catch (SQLException ex) {
+                 Logger.getLogger(Fen.class.getName()).log(Level.SEVERE, null, ex);
+             } catch (ClassNotFoundException ex) {
+                 Logger.getLogger(Fen.class.getName()).log(Level.SEVERE, null, ex);
+             }
+         }  
+     } 
+ }

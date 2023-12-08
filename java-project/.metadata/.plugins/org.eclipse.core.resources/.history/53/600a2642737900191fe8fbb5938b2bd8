@@ -1,0 +1,37 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package master;
+
+import DAO.EmployerDAO;
+import static DAO.EmployerDAO.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import model.Employer;
+
+
+public class Master {
+
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        // TODO code application logic here
+      //  Fenetre Fen = new Fenetre();
+        
+    }
+    
+}
+
+
+   /** ResultSet rs = findAll("slave1");
+      //On récupère les MetaData
+        while (rs.next()) {
+           int IdEmployer = Integer.parseInt(rs.getString("id_employer")); 
+           System.out.println(IdEmployer);
+       }
+        
+        Employer p = new Employer(1,"test", "test", "1980-08-24", "test", "test@yahoo.fr", "0326598785");
+        
+        p.setDateajout(p.Getcurrentdatetime());
+        insert("slave1",p);**/

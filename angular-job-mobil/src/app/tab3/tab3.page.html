@@ -1,0 +1,89 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-title>
+      Mon compte
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="DBUser" [fullscreen]="true">
+    <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle><img src="assets/img/profil.png"/></ion-card-subtitle>
+          <ion-card-title>{{DBUser.nom}} {{DBUser.prenom}}</ion-card-title><ion-button (click)="presentModal()">Modifier</ion-button>
+          <ion-button (click)="logout()">Deconnecter</ion-button>
+        </ion-card-header>
+        
+        <ion-chip>
+            <ion-icon name="calendar-outline"></ion-icon>
+            <ion-label>{{DBUser.date}}</ion-label>
+          </ion-chip>
+          <ion-chip>
+              <ion-icon name="location-outline"></ion-icon>
+              <ion-label>{{DBUser.adresse}}</ion-label>
+            </ion-chip> 
+        <ion-card-content>
+            {{DBUser.presentation}}
+        </ion-card-content>
+        <!-- List of Text Items -->
+         
+                <ion-card-header>
+                    <ion-card-title>Compétance</ion-card-title>
+                  </ion-card-header>
+              
+              <ion-item>
+                <ion-avatar slot="start">
+                    <img class="img_cat" height="40px" src='./assets/img/bricolage.png'/>
+                </ion-avatar>
+                <ion-label>Bricoleur, peintre, électricien, plombier</ion-label>
+              </ion-item>
+              <ion-list lines="none">
+                <ion-item *ngIf="DBUser.meubles=='true'">
+                  <ion-label>Montage de meubles</ion-label>
+                </ion-item>
+                <ion-item *ngIf="DBUser.menuisier=='true'">
+                  <ion-label>Menuisier, ébéniste</ion-label>
+                </ion-item>
+                <ion-item *ngIf="DBUser.beton=='true'">
+                  <ion-label>Béton</ion-label>
+                </ion-item>
+                <ion-item *ngIf="DBUser.papier=='true'">
+                  <ion-label>Papier peint</ion-label>
+                </ion-item>
+                <ion-item *ngIf="DBUser.joints=='true'">
+                  <ion-label>Pose de joints</ion-label>
+                </ion-item>
+                <ion-item *ngIf="DBUser.electronique=='true'">
+                    <ion-label>Electronique</ion-label>
+                  </ion-item>
+              </ion-list>
+              <!--MECANIQUE-->
+              <ion-item>
+                  <ion-avatar slot="start">
+                      <img class="img_cat" height="40px" src='./assets/img/mecanique.png'/>
+                  </ion-avatar>
+                  <ion-label>Mécanicien, réparateur</ion-label>
+                </ion-item>
+                <ion-list lines="none">
+                    <ion-item *ngIf="DBUser.monter=='true'">
+                      <ion-label>Monter, démonter</ion-label>
+                    </ion-item>
+                    <ion-item *ngIf="DBUser.vidange=='true'">
+                      <ion-label>Vidange</ion-label>
+                    </ion-item>
+                    <ion-item *ngIf="DBUser.moteur=='true'">
+                      <ion-label>Mécanique moteur</ion-label>
+                    </ion-item>
+                    <ion-item *ngIf="DBUser.pneus=='true'">
+                      <ion-label>Changer pneus</ion-label>
+                    </ion-item>
+                    <ion-item *ngIf="DBUser.carrosserie=='true'">
+                      <ion-label>Carrosserie</ion-label>
+                    </ion-item>
+                  </ion-list>
+
+      </ion-card>
+
+
+      
+</ion-content>

@@ -1,0 +1,145 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="success"  >
+        
+         <ion-title>Modifier mon profil</ion-title>
+         <ion-buttons slot="primary">
+           <ion-button (click)="dismiss()" color="danger" fill="outline" color="light">
+             Fermer
+           </ion-button>
+         </ion-buttons>
+       </ion-toolbar>
+  </ion-header>
+  
+  <ion-content *ngIf="DBUser" [fullscreen]="true">
+    
+      <ion-card>
+        <form (ngSubmit)="editSubmit()" [formGroup]="editForm" #editUserForm="ngForm">
+            <ion-input type="hidden" formControlName="email" [(ngModel)]="DBUser.email"></ion-input>
+            <ion-input type="hidden" formControlName="iam" [(ngModel)]="DBUser.iam"></ion-input>
+            <ion-input type="hidden" formControlName="profil" [(ngModel)]="DBUser.profil"></ion-input>
+        <ion-item>
+          <ion-label position="floating"> {{DBUser.email}}</ion-label>
+          <ion-input  disabled></ion-input>
+         
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Prénom</ion-label>
+          <ion-input formControlName="prenom" [(ngModel)]="DBUser.prenom"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Nom</ion-label>
+            <ion-input formControlName="nom" [(ngModel)]="DBUser.nom"></ion-input>
+          </ion-item>
+        <ion-item>
+          <ion-label position="floating">Mot de passe</ion-label>
+          <ion-input type="password" formControlName="mdp" [(ngModel)]="DBUser.mdp"></ion-input>
+        </ion-item>
+        <div *ngIf="mdp.invalid && (mdp.dirty || mdp.touched) && mdp.errors.required">
+            <span class="error-message">Veuillez renseigner ce champ.</span>
+          </div>
+          <div *ngIf="mdp.invalid && (mdp.dirty || mdp.touched) && mdp.errors.minlength">
+              <span class="error-message">Saisissez au moins 6 caractère.</span>
+            </div>
+        <ion-item>
+          <ion-label position="floating">Téléphone mobile</ion-label>
+          <ion-input formControlName="phone" [(ngModel)]="DBUser.phone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Adresse</ion-label>
+          <ion-input formControlName="adresse" [(ngModel)]="DBUser.adresse"></ion-input>
+        </ion-item>
+        
+        
+        <ion-item>
+          <ion-label position="floating">Présentez-vous</ion-label>
+          <ion-textarea formControlName="presentation" [(ngModel)]="DBUser.presentation"></ion-textarea>
+        </ion-item>
+     
+
+        <ion-card-title>Sélectionnez vos compétences</ion-card-title>
+
+        <ion-item>
+            <ion-avatar slot="start">
+                <img class="img_cat" height="40px" src='./assets/img/bricolage.png'/>
+            </ion-avatar>
+            <ion-label>Bricolage</ion-label>
+          </ion-item>
+          <ion-list>
+            <ion-item>
+              <ion-label>Montage de meubles</ion-label>
+              <ion-checkbox formControlName="meubles" [(ngModel)]="DBUser.meubles"></ion-checkbox>
+            </ion-item>
+          </ion-list>
+          <ion-list>
+              <ion-item>
+                <ion-label>Menuisier, ébéniste</ion-label>
+                <ion-checkbox formControlName="menuisier" [(ngModel)]="DBUser.menuisier"></ion-checkbox>
+              </ion-item>
+            </ion-list>
+            <ion-list>
+                <ion-item>
+                  <ion-label>Béton</ion-label>
+                  <ion-checkbox formControlName="beton" [(ngModel)]="DBUser.beton"></ion-checkbox>
+                </ion-item>
+              </ion-list>
+              <ion-list>
+                  <ion-item>
+                    <ion-label>Papier peint</ion-label>
+                    <ion-checkbox formControlName="papier" [(ngModel)]="DBUser.papier"></ion-checkbox>
+                  </ion-item>
+                </ion-list>
+                <ion-list>
+                    <ion-item>
+                      <ion-label>Pose de joints</ion-label>
+                      <ion-checkbox formControlName="joints" [(ngModel)]="DBUser.joints"></ion-checkbox>
+                    </ion-item>
+                  </ion-list>
+                  <ion-list>
+                      <ion-item>
+                        <ion-label>Electronique</ion-label>
+                        <ion-checkbox formControlName="electronique" [(ngModel)]="DBUser.electronique"></ion-checkbox>
+                      </ion-item>
+                    </ion-list>
+        
+        
+         <ion-item>
+            <ion-avatar slot="start">
+                <img class="img_cat" height="40px" src='./assets/img/mecanique.png'/>
+            </ion-avatar>
+            <ion-label>Mécanique</ion-label>
+          </ion-item>
+          <ion-list>
+            <ion-item>
+              <ion-label>Monter, démonter</ion-label>
+              <ion-checkbox formControlName="monter" [(ngModel)]="DBUser.monter"></ion-checkbox>
+            </ion-item>
+          </ion-list>
+          <ion-list>
+              <ion-item>
+                <ion-label>Vidange</ion-label>
+                <ion-checkbox formControlName="vidange" [(ngModel)]="DBUser.vidange"></ion-checkbox>
+              </ion-item>
+            </ion-list>
+            <ion-list>
+                <ion-item>
+                  <ion-label>Mécanique moteur</ion-label>
+                  <ion-checkbox formControlName="moteur" [(ngModel)]="DBUser.moteur"></ion-checkbox>
+                </ion-item>
+              </ion-list>
+              <ion-list>
+                  <ion-item>
+                    <ion-label>Changer pneus</ion-label>
+                    <ion-checkbox formControlName="pneus" [(ngModel)]="DBUser.pneus"></ion-checkbox>
+                  </ion-item>
+                </ion-list>
+                <ion-list>
+                    <ion-item>
+                      <ion-label>Carrosserie</ion-label>
+                      <ion-checkbox formControlName="carrosserie" [(ngModel)]="DBUser.carrosserie"></ion-checkbox>
+                    </ion-item>
+                  </ion-list>
+
+                    <ion-button type="submit" [disabled]="!editUserForm.form.valid" color="success" expand="full">MODIFIER</ion-button>
+                  </form>
+          </ion-card>
+  </ion-content>

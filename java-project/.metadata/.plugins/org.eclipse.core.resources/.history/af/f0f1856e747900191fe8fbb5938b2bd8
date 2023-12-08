@@ -1,0 +1,75 @@
+package master;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JLabel;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+
+public class Fenetre {
+
+	private JFrame frame;
+
+	
+	/**
+	 * Create the application.
+	 */
+	public Fenetre() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 673, 516);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new EmptyBorder(1, 1, 1, 1));
+		panel.setBounds(10, 11, 637, 40);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Base", "base", "base"}));
+		comboBox.setBounds(256, 11, 115, 20);
+		panel.add(comboBox);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(10, 62, 637, 40);
+		frame.getContentPane().add(panel_1);
+		panel_1.setLayout(null);
+		
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"table"}));
+		comboBox_1.setBounds(136, 11, 115, 20);
+		panel_1.add(comboBox_1);
+		
+		JLabel lblInsertion = new JLabel("Insertion");
+		lblInsertion.setBounds(491, 14, 46, 14);
+		panel_1.add(lblInsertion);
+		
+		JLabel lblModifier = new JLabel("Modifier/Suprimer");
+		lblModifier.setBounds(29, 14, 88, 14);
+		panel_1.add(lblModifier);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBounds(10, 113, 401, 353);
+		frame.getContentPane().add(panel_2);
+		panel_2.setLayout(null);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBounds(421, 113, 226, 353);
+		frame.getContentPane().add(panel_3);
+		
+		frame.setVisible(true);
+	}
+}

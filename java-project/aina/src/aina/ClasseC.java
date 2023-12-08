@@ -1,0 +1,17 @@
+package aina;
+
+public class ClasseC extends ClasseB{
+	public char x='3';
+	public void fonctionx() {
+		System.out.println(x);
+		System.out.println(this.x);
+		System.out.println(super.x);
+		System.out.println(((ClasseB) this).x);
+		System.out.println(((ClasseA) this).x);
+		//System.out.println(super.super.x);
+	}
+	public void affiche() {
+		super.affiche();
+		 System.out.println("je suis un objet de ClasseC");
+	}
+}

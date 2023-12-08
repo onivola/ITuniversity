@@ -1,0 +1,122 @@
+package master;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JLabel;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
+import javax.swing.UIManager;
+import javax.swing.border.MatteBorder;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
+import DAO.EmployerDAO;
+
+import javax.swing.JButton;
+
+public class Fenetre {
+
+	private JFrame frame;
+	private JTable table;
+
+	
+	/**
+	 * Create the application.
+	 */
+	public Fenetre() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 673, 568);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		panel.setBounds(10, 11, 637, 40);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Base", "base", "base"}));
+		comboBox.setBounds(204, 11, 115, 20);
+		panel.add(comboBox);
+		
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setBounds(329, 11, 115, 20);
+		panel.add(comboBox_1);
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"table"}));
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBorder(new TitledBorder(null, "Modifier/Suprimer", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_2.setBounds(10, 62, 401, 404);
+		frame.getContentPane().add(panel_2);
+		panel_2.setLayout(null);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		panel_1.setBounds(10, 24, 381, 369);
+		panel_2.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JButton btnModifier = new JButton("MODIFIER");
+		
+		table = new JTable(EmployerDAO.GetColumn("slave1"),EmployerDAO.GetRows("slave1"));
+		
+		//table.setDefaultRenderer(Object.class, new Render());
+		/**table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"test", "test", "MODIFIER"},
+				{"test", "test", "MODIFIER"},
+				{"test", "test", "MODIFIER"},
+			},
+			new String[] {
+				"New column", "New column", "New column"
+			}
+		));**/
+		table.getColumnModel().getColumn(2).setCellRenderer(new ButtonRender());
+		table.getColumnModel().getColumn(2).setCellEditor(new ButtonEditor(new JTextField()));
+		table.setBounds(10, 11, 361, 347);
+		panel_1.add(table);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBorder(new TitledBorder(null, "Ajouter", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_3.setBounds(421, 62, 226, 404);
+		frame.getContentPane().add(panel_3);
+		panel_3.setLayout(null);
+		
+		JPanel panel_5 = new JPanel();
+		panel_5.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		panel_5.setBounds(10, 23, 206, 370);
+		panel_3.add(panel_5);
+		panel_5.setLayout(null);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		panel_4.setBounds(10, 477, 637, 41);
+		frame.getContentPane().add(panel_4);
+		panel_4.setLayout(null);
+		
+		JButton btnSynchroniser = new JButton("SYNCHRONISER");
+		btnSynchroniser.setBounds(260, 11, 130, 23);
+		panel_4.add(btnSynchroniser);
+		
+		frame.setVisible(true);
+	}
+}

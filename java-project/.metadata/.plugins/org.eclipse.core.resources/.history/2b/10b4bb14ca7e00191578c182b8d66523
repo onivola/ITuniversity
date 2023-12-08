@@ -1,0 +1,5 @@
+package aina;
+
+public class ClasseA {
+	public double x;
+}

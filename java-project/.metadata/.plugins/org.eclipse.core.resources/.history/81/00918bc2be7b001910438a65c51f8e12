@@ -1,0 +1,10 @@
+
+public class Chien extends Canin{
+
+	@Override
+	public void crier() {
+		// TODO Auto-generated method stub
+		System.out.println("J'aboie sans raison !");
+	}
+	
+}

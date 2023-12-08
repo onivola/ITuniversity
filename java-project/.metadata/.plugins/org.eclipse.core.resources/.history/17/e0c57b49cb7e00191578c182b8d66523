@@ -1,0 +1,8 @@
+package aina;
+
+public class ClasseB extends ClasseA {
+	public int x=2;
+	public void fonctionx() {
+		System.out.println(x);
+	}
+}

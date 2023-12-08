@@ -1,0 +1,22 @@
+package com.mathmaurer.jeu;
+
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
+public class Scene extends JPanel{
+	private ImageIcon icoFond;
+	private Image imgFond1;
+	
+	private ImageIcon icoMario;
+	private Image imgMario;
+	
+	private int xFond1;
+	public Scene() {
+		super(); //appeler le constructeur de la classe maire
+		
+		
+		
+	}
+}

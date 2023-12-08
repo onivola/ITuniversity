@@ -1,0 +1,15 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Animal l = new Loup("Gris bleu", 20);
+		Animal c = new Chien("noir",65);
+		l.boire();
+		l.manger();
+		l.deplacement();
+		l.crier();
+		//System.out.println(l.toString());
+	}
+
+}

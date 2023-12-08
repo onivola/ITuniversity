@@ -1,0 +1,66 @@
+package Main;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class Fenetre {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Fenetre window = new Fenetre();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Fenetre() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 869, 620);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(10, 465, 833, 105);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBounds(666, 11, 157, 83);
+		panel.add(panel_3);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(10, 11, 833, 68);
+		frame.getContentPane().add(panel_1);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBounds(10, 90, 833, 364);
+		panel_2.setLayout(null);
+		Panneau pan = new Panneau();
+		pan.setBounds(342, 54, 264, 281);
+		panel_2.add(pan);
+		frame.getContentPane().add(panel_2);
+		
+	}
+}
